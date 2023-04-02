@@ -1,0 +1,112 @@
+<div class="items-timeline-container display-flex-column">
+    <div class="items-timeline__title-container display-flex-row">
+        <div class="item-title-information display-flex-row">
+            <div class="item-title-information__date">
+                <p class="item-title-date">Date</p>
+            </div>
+            <div class="item-title-information__title">
+                <p class="item-title-Title">Title</p>
+            </div>
+            <div class="item-title-information__businessUnit">
+                <p>Business Unit</p>
+            </div>
+        </div>
+        <div class="item-title-status display-flex-row">
+            <div class="item-title-status__withUser">
+                <p class="item-title-withUser">With User</p>
+            </div>
+            <div class="item-title-status_delay-and-status display-flex-row">
+                <div class="item-title-delay">
+                    <p>Delay</p>
+                </div>
+                <div class="item-title-status">
+                    <p>Status</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let item of itemsList">
+        <div class="items-timeline__item-container display-flex-row">
+            <div class="item-information display-flex-row">
+                <div class="item__date display-flex-row">
+                    <div class="item__date__border"   [ngClass]="{'approved-border': item.status == 'Approved','rejected-border': item.status == 'Rejected', 'in-progress-border': item.status == 'In Progress' }" >
+    
+                    </div>
+                    <div class="item__date display-flex-column">
+                        <p 
+                            class="item__date__month"
+                            [ngClass]="{'approved': item.status == 'Approved','rejected': item.status == 'Rejected', 'in-progress': item.status == 'In Progress' }" 
+                        >
+                            {{ item.date | month}}
+                        </p>
+                        <p 
+                            class="item__date__date"
+                            [ngClass]="{'approved': item.status == 'Approved','rejected': item.status == 'Rejected', 'in-progress': item.status == 'In Progress' }" 
+                        >
+                            {{ item.date | day}}
+                        </p>
+                    </div>
+                </div>
+                <div class="item__title display-flex-row">
+                    <p class="item__title__text">{{ item.title }}</p>
+                </div>
+                <div class="item__businessUnit display-flex-row">
+                    <p class="itme__businessUnit__text">{{ item.businessUnit }}</p>
+                </div>
+            </div>
+            <div class="item-status display-flex-row">
+                <div class="item-status__withUser display-flex-row">
+                    <img src= '{{item.userImg }}'>
+                </div>
+                <div class="item-status__delay-and-status display-flex-row">
+                    <div class="item-status__delay display-flex-row">
+                        <div *ngIf="item.status == 'Rejected'"  class="overdue display-flex-row">
+                            <p class="overdue__text">1d Overdue</p>
+                        </div>
+                        <div class="item-status__delay-inspect-container display-flex-row"  (click)="openModal(template)">
+                            <img src="../../../../../../assets/icons/Inspect-outlineIcon.png" [ngClass]="{'inspect-icon-active': inspectIcon == true}">
+                            <img class="inspect-icon-default" src="../../../../../../assets/icons/Inspect-inlineIcon.png" [ngClass]="{'inspect-icon-active': inspectIcon == true}">
+                        </div>
+                    </div>
+                    <div class="item-status__status display-flex-row">
+                        <div *ngIf="item.status == 'Approved'" class="status-container-approved status-container-ability display-flex-row">
+                            <p class="status__text-approved">Approved</p>
+                        </div>
+                        <div  *ngIf="item.status == 'Rejected'" class="status-container-rejected status-container-ability display-flex-row">
+                            <p class="status__text-rejected">Rejected</p>
+                        </div>
+                        <div *ngIf="item.status == 'In Progress'" class="status-container-in-progress status-container-ability display-flex-row">
+                            <p class="status__text-in-progress">In Progress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inspect Modal -->
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Quick View</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeInspectModal()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body inspect-modal">
+        <p class="modal-body-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <p class="modal-body-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <p class="modal-body-text modal-body-last-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div> 
+    <div class="modal-footer inspect-modal-footer">
+        <button (click)="closeInspectModal()" class="btn btn-primary close-btn">Close</button>
+        <button (click)="closeInspectModal()" class="btn btn-primary ok-btn">OK</button>
+    </div>
+</ng-template>

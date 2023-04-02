@@ -1,0 +1,57 @@
+<div class="tasks-and-actions-container display-flex-row">
+    <div class="tasks-and-actions-items">
+        <div class="tasks-and-actions-items__header-container display-flex-column">
+            <p class="header-container__title">Tasks you initiated</p>
+            <p class="header-container__description">Stay tuned with tasks you initiated</p>
+        </div>
+        <div *ngFor="let task of tasks">
+            <div class="tasks-and-actions-items__item-container display-flex-row">
+                <div class="item-information display-flex-row">
+                    <img src='{{task.img}}'>
+                    <div class="item-information__description display-flex-column">
+                        <p class="item-information__title">{{ task.title }}</p>
+                        <p class="header-container__description">{{ task.subtitle }}</p>
+                    </div>
+                </div>
+                <div class="item-progress-container">
+                    <div class="item-progress diplay-flex-column">
+                        <p  class="header-container__description">{{ task.date | day}} {{ task.date | taskAndActionsMonth}}</p> 
+                        <div class="progress" style="height: 15px; background-color: rgb(204, 204, 204);">
+                            <div [ngClass]="{'progress-bar-danger': task.progress <= 40, 'progress-bar-warning': task.progress >= 41 && task.progress <= 60, 'progress-bar-primary': task.progress >=61 && task.progress < 90, 'progress-bar-success': task.progress >= 90}" class="progress-bar" role="progressbar" [ngStyle]="{'width': task.progress + '%' }"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <span class="progress-value">{{ task.progress | percentage}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tasks-and-actions-items">
+        <div class="tasks-and-actions-items__header-container display-flex-column">
+            <p class="header-container__title overdue-actions">Overdue Actions</p>
+            <p class="header-container__description">You're late, harry up!</p>
+        </div>
+        <div *ngFor="let action of actions">
+            <div class="tasks-and-actions-items__item-container display-flex-row">
+                <div class="item-information display-flex-row">
+                    <img src='{{action.img}}'>
+                    <div class="item-information__description display-flex-column">
+                        <p class="item-information__title">{{ action.title }}</p>
+                        <p class="header-container__description">{{ action.subtitle }}</p>
+                    </div>
+                </div>
+                <div class="item-progress-container">
+                    <div class="item-progress diplay-flex-column">
+                        <p  class="header-container__description">{{ action.date | day}} {{ action.date | taskAndActionsMonth}}</p> 
+                        <div class="progress" style="height: 15px; background-color: rgb(204, 204, 204);">
+                            <div [ngClass]="{'progress-bar-danger': action.progress <= 40, 'progress-bar-warning': action.progress >= 41 && action.progress <= 60, 'progress-bar-primary': action.progress >=61 && action.progress < 90, 'progress-bar-success': action.progress >= 90}" class="progress-bar" role="progressbar" [ngStyle]="{'width': action.progress + '%' }"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <span class="progress-value">{{ action.progress | percentage}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

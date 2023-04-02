@@ -1,0 +1,14 @@
+<div class="header-container display-flex-row">
+    <img class="logo-focus" src="../../../assets/icons/focus.svg" [routerLink]="['/pulse']" >
+    <div class="notifications-container" (click)="showNotifications()" tabindex="3" (blur)="closeNotifications()">
+        <img class="notifications-image" src="../../../assets/icons/NotificationsIcon.png" [ngClass]="{'notification-icon-active': dropdown == true}">
+        <div *ngIf="numberOfNotifications > 0" class="notifications display-flex-row"><span class="notifications__text">{{numberOfNotifications}}</span></div>
+    </div>
+    <div *ngIf="dropdown" class="dropdown-container">
+        <div *ngFor="let notification of notifications"> 
+            <div class="notification" (click)="openNotification()">
+                <p class="notifiaction__text">{{ notification.name }}</p>
+            </div>
+        </div>
+    </div>
+</div>

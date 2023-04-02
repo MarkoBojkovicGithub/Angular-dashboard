@@ -1,0 +1,47 @@
+<div class="calendar-container" [ngClass]="{'expand-calendar': calendarContainer == true}">
+    <div class="calendar-trigger-container">
+        <div (click)="triggerCalendar()" class="calendar-trigger" [ngClass]="{'hide-trigger': calendarContainer == true}">
+            <img class="calendar-btn" src="../../../../../../assets/icons/Calendar-exp-btn.png">
+        </div>
+    </div>
+    <div class="calendar-content-container">
+        <div class="calendar-title-container">
+            <p class="calendar-title">Calendar</p>
+            <div class="btn-close-container" (click)="triggerCalendar()">
+                <img src="../../../../../../assets/icons/Btn-close.png">
+            </div>
+        </div>
+        <div class="content">
+            <div class="calendar-event display-flex-row" *ngFor="let event of calendar">
+                <div class="calendar-event-body">
+                    <div class="calendar-event-body__text display-flex-row" >
+                        <li class="calendar-event__date">{{""}}</li>
+                        <span class="calendar-event__title">{{event.name}}</span>
+                    </div>
+                    <p class="calendar-event__date">{{ event.date | date}}</p>
+                </div>
+                <div *ngIf="event.status == 'Urgent'" class="notification-container display-flex-row">
+                    <div class="notification display-flex-row">
+                        <p class="notification__text">Urgent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-item display-flex-row" (click)="onSubmit()">
+            <img class="add-item__icon" src="../../../../../../assets/icons/AdditemIcon.png">
+            <p class="add-item__text">Add New Item</p>
+        </div>
+        <div class="calendar-form">
+            <form [formGroup]="calendarForm" (ngSubmit)="onSubmit()">
+                <div class="calendarFormItem">
+                    <label for="name">Meeting name </label>
+                    <input id="name" type="text" formControlName="formName">
+                </div>
+                <div class="calendarFormItem">
+                    <label for="date">Date </label>
+                    <input id="date" type="text" formControlName="formDate">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

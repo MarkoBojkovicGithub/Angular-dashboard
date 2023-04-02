@@ -1,0 +1,33 @@
+.pulse-container {
+    background-color: #FBFBFF;
+    width: 100%;
+    height: calc(100% - 60px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    p {
+        margin: 0px;
+        color: #120C39;
+    }
+
+    .pulse-content {
+        width: 100%;
+        height: 100%;
+        transition-duration: 300ms;
+        display: flex;
+        flex-direction: column;
+
+        .calendar-trigger {
+            position: absolute;
+            right: 0px;
+            top: 10px;
+        }
+    }
+
+    .shrink-container {
+        width: calc(100% - 400px);
+        transition-duration: 300ms;
+    }
+}

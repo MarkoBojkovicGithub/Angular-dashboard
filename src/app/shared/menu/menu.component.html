@@ -1,0 +1,24 @@
+<div class="menu-container display-flex-column">
+    <div class="menu-item display-flex-column" [ngClass]="{'menu-item-active': pulse == true}" style="margin-bottom:80px;" [routerLink]="['/pulse']" >
+        <img class="menu-item__icon" src="../../../assets/icons/PulseIcon.png">
+        <p class="menu-item__name">Pulse</p>
+    </div>
+
+    <div class="menu-item display-flex-column" [ngClass]="{'menu-item-active': meeting == true}" [routerLink]="['/meeting']">
+        <div class="meeting-icon">
+            <img class="menu-item__icon meeting-icon-left" src="../../../assets/icons/Meeting.png">
+            <img class="menu-item__icon meeting-icon-right" src="../../../assets/icons/Meeting.png">
+        </div>
+        <p class="menu-item__name">Meeting</p>
+    </div>
+
+    <div class="menu-item display-flex-column" [ngClass]="{'menu-item-active': items == true}" [routerLink]="['/items']">
+        <img class="menu-item__icon" src="../../../assets/icons/ItemsIcon.png">
+        <p class="menu-item__name">Items</p>
+    </div>
+
+    <div class="menu-item display-flex-column" [ngClass]="{'menu-item-active': actions == true}" [routerLink]="['/actions']">
+        <img  class="menu-item__icon" src="../../../assets/icons/ActionsIcon.png">
+        <p class="menu-item__name">Actions</p>
+    </div>
+</div>

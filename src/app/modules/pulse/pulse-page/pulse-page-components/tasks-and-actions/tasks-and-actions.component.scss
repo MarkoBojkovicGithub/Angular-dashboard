@@ -1,0 +1,124 @@
+p {
+    margin: 0px;
+    color:#120C39;
+}
+
+.tasks-and-actions-container {
+    margin: 50px 50px 0px 50px;
+    width: calc(100% - 100px);
+    height: 320px;
+
+    justify-content: space-between;
+    align-items: center;
+
+    .tasks-and-actions-items {
+        width: 48.5%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 1px 1px 15px 2px #f3f2f2;
+
+        .tasks-and-actions-items__header-container {
+            width: calc(100% - 40px);
+            padding: 15px 20px 15px 20px;
+            height: 36px;
+            border-bottom: 1px solid #f0eeee;;
+
+            .header-container__title {
+                font: {
+                    size: 15px;
+                    weight: bold;
+                }
+            }
+            
+            .overdue-actions {
+                color:#EA4335;
+            }
+        }
+
+        .tasks-and-actions-items__item-container {
+            width: 100%;
+            height: 60px;
+
+            justify-content: space-between;
+            align-items: center;
+
+            .item-information {
+                width: calc(50% - 20px);
+                height: 100%;
+                padding-left: 20px;
+                align-items: center;
+
+                .item-information__description {
+                    width: calc(100% - 15px);
+                    height: 100%;
+                    margin-left: 15px;
+
+                    align-content: start;
+                    justify-content: center;
+
+                    .item-information__title {
+                        color:#120C39;
+                        font: {
+                            size: 14px;
+                        }
+                    }
+                }
+            }
+
+            .item-progress-container {
+                width: 50%;
+                height: 100%;
+
+                .item-progress {
+                    width: 70px;
+                    height: calc(100% - 10px);
+                    margin-right: 20px;
+                    float: right;
+                    padding-top: 10px;
+                    text-align: end;
+                    position: relative;
+
+                    .progress-value {
+                        position: absolute;
+                        left: 7px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.display-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container__description {
+    color: #b0aebe;
+    font: {
+        size: 13px;
+    }
+}
+
+.progress-bar-danger {
+    background-color: #EA4335;
+}
+
+.progress-bar-warning {
+    background-color: #FFB017;
+}
+
+.progress-bar-primary {
+    background-color: #1495F0;
+}
+
+.progress-bar-success {
+    background-color: #5CB85C;
+}

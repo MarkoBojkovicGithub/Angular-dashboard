@@ -1,0 +1,154 @@
+<div class="quick-links-container">
+    <p class="quick-links-title">Waiting your Action</p>
+    <div class="quick-links-content">
+        <div class="quick-links-group">
+            <div class="quick-links-card">
+                <div class="card-body">
+                    <div class="icon-container meetings">
+                        <div class="meeting-icon">
+                            <img class="meeting-icon-left" src="../../../assets/icons/Meeting.png">
+                            <img class="meeting-icon-right" src="../../../assets/icons/Meeting.png">
+                        </div>
+                    </div>
+                    <p  class="card-title__text">{{ meetings }}</p>
+                </div>
+                <div class="card-title">
+                    <p>Meetings</p>
+                </div>
+            </div>
+            <div class="quick-links-card">
+                <div class="card-body">
+                    <div class="icon-container items">
+                        <img class="icon" src="../../../../../../assets/icons/ItemsIcon.png">
+                    </div>
+                    <p  class="card-title__text">{{ items }}</p>
+                </div>
+                <div class="card-title">
+                    <p>Items</p>
+                </div>
+            </div>
+            <div class="quick-links-card">
+                <div class="card-body">
+                    <div class="icon-container actions">
+                        <img class="icon" src="../../../../../../assets/icons/ActionsIcon.png">
+                    </div>
+                    <p  class="card-title__text">{{ actions }}</p>
+                </div>
+                <div class="card-title">
+                    <p>Actions</p>
+                </div>
+            </div>
+            <div class="quick-links-card">
+                <div class="card-body">
+                    <div class="icon-container reminders">
+                        <div class="reminders-icon">
+                            <img class="reminders-book-icon" src="../../../../../../assets/icons/Reminders-book.png">
+                            <img class="reminders-clock-icon" src="../../../../../../assets/icons/Reminders-clock.png">
+                        </div>
+                    </div>
+                    <p  class="card-title__text">{{ reminders }}</p>
+                </div>
+                <div class="card-title">
+                    <p>Reminders</p>
+                </div>
+            </div>
+            <div class="quick-links-card">
+                <div class="card-body">
+                    <div class="icon-container notes">
+                        <img class="icon" src="../../../../../../assets/icons/NotesIcon.png">
+                    </div>
+                    <p  class="card-title__text">{{ notes }}</p>
+                </div>
+                <div class="card-title">
+                    <p>Notes</p>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-quick-item" (click)="openModal(template)"><span class="btn-quick-item-plus">+</span> Quick Item</button>        
+    </div>
+
+    <ng-template #template>
+        <div class="modal-header quick-item-form-container">
+            <h4 class="modal-title pull-left">Create Quick Item</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="onCancel()">
+                <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body quick-item-form-container">
+            <form [formGroup]="quickItemForm" (onsubmit)="onSubmit()" class="quick-item-form">
+                <div class="information display-flex-column">
+                    <label for="ItemTitle">Item Title</label>
+                    <input required type="text" formControlName="formItemTitle" (focusout)="validateItemTitle()"  (keyup)="validateItemTitle()">
+                    <p class="default-error" [ngClass]= "{'active-error': formItemTitleError == true}">Please fill the Item Title field</p>
+                </div>
+                <div class="display-flex-row display-align">
+                    <div class="short-information display-flex-column">
+                        <label for="Type">Type</label>
+                        <input required type="text" formControlName="formType" (focusout)="validateType()" (keyup)="validateType()">
+                        <p class="default-error" [ngClass]= "{'active-error': formTypeError == true}">Please fill the Type field</p>
+                    </div>
+                    <div class="short-information display-flex-column">
+                        <label for="Business">Business</label>
+                        <input required type="text" formControlName="formBusiness" (focusout)="validateBusiness()"  (keyup)="validateBusiness()">
+                        <p class="default-error" [ngClass]= "{'active-error': formBusinessError == true}">Please fill the Business field</p>
+                    </div>
+                </div>
+                <div class="display-flex-row display-align">
+                    <div class="short-information display-flex-column">
+                        <label for="DueDate">Due Date</label>
+                        <input required type="text" formControlName="formDueDate" (focusout)="validateDueDate()" (keyup)="validateDueDate()">
+                        <p class="default-error" [ngClass]= "{'active-error': formDueDateError == true}">Please fill the Due Date field</p>
+                    </div>
+                    <div class="short-information display-flex-column">
+                        <label for="Priority">Priority</label>
+                        <input required type="text" formControlName="formPriority" (focusout)="validatePriority()" (keyup)="validatePriority()">
+                        <p class="default-error" [ngClass]= "{'active-error': formPriorityError == true}">Please fill the Priority field</p>
+                    </div>
+                </div>
+                <div class="display-flex-row display-align">
+                    <div class="short-information display-flex-column">
+                        <label for="JobTitle">Job Title</label>
+                        <div class="display-flex-row" style="margin-top: 8px">
+                            <input id="MarketingCoordinator" formControlName="formJobs" class="job-title-option" type="radio" name="JobTitle" value="Marketing Coordinator" (change)="validateJobs()" required>
+                            <label for="MarketingCoordinator">Marketing Coordinator</label>
+                        </div>
+                        <div class="display-flex-row">
+                            <input id="WebDesigner" class="job-title-option" formControlName="formJobs"  type="radio" name="JobTitle" value="Web Designer" (change)="validateJobs()">
+                            <label for="WebDesigner">Web Designer</label>
+                        </div>
+                        <div class="display-flex-row">
+                            <input id="PresidentOfSales" class="job-title-option" formControlName="formJobs"  type="radio" name="JobTitle" value="President of Sales" (change)="validateJobs()">
+                            <label for="PresidentOfSales">President of Sales</label>
+                        </div>
+                        <p class="default-error" [ngClass]= "{'active-error': formJobsError == true}">Please select a Job Title</p>
+                    </div>
+                    <div class="short-information display-flex-column">
+                        <label for="Languages">Languages</label>
+                        <div class="display-flex-row" style="margin-top: 8px">
+                            <input id="Spanish" class="job-title-option" type="checkbox" name="Languages" value="Spanish">
+                            <label for="Spanish">Spanish</label>
+                        </div>
+                        <div class="display-flex-row">
+                            <input id="Chinese" class="job-title-option"  type="checkbox" name="Languages" value="Chinese">
+                            <label for="Chinese">Chinese</label>
+                        </div>
+                        <div class="display-flex-row">
+                            <input id="Arabic" class="job-title-option"  type="checkbox" name="Languages" value="Arabic">
+                            <label for="Arabic">Arabic</label>
+                        </div>
+                        <p class="default-error">Emtpy field for future updates</p>
+                    </div>
+                </div>
+                <div class="information display-flex-column objective-container">
+                    <label for="Objective">Objective</label>
+                    <textarea  formControlName="formObjective" type="text" required (focusout)="validateObjective()" (keyup)="validateObjective()"></textarea>
+                    <p class="default-error objective" [ngClass]= "{'active-error': formObjectiveError == true}">Please fill the Objective field</p>
+                </div>
+            </form>
+        </div> 
+        <div class="modal-footer form-footer">
+            <button (click)="onCancel()" class="btn btn-primary cancel-btn">Cancel</button>
+            <button (click)="onSubmit()" class="btn btn-primary submit-btn">Submit</button>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,70 @@
+p {
+    color: #120C39;
+}
+
+.menu-container {
+    position: relative;
+    padding-top: 80px;      //Specifing the space between the first icon and the top of the screen
+    left: 0px;
+    top:0px;
+    width: 60px;
+    height: calc(100% - 80px);
+    background-color: #1495F0;
+
+    .menu-item {
+        background-color: #1495F0;
+        width: 100%;
+        padding: 10px 0px;     
+        margin-bottom: 0px; 
+        cursor: pointer;
+
+        &__icon {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+        }
+
+        &__name {
+            color:white;
+            margin: 0px;
+            font-size: 14px;
+        }
+    
+
+        &-active {
+            background-color: #FBFBFF;
+
+            .menu-item__name {
+                color: #1495F0;
+            }
+
+            .menu-item__icon {
+                filter: invert(50%) sepia(23%) saturate(7339%) hue-rotate(181deg) brightness(98%) contrast(91%);        //Transforming png image color
+            }
+        }
+
+        .meeting-icon {
+            .meeting-icon-left {
+                z-index: 2;
+                width: 20px;
+                height: 20px;
+                left: 2px;
+            }
+
+            .meeting-icon-right {
+                z-index: 1;
+                position: relative;
+                width: 20px;
+                height: 20px;
+                top:-2px;
+                left:-3px;
+            }
+        }
+    }
+}
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

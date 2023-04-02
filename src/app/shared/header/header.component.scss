@@ -1,0 +1,110 @@
+.header-container {
+    position: relative;
+    top:0px;
+    left:0px;
+    width: calc(100% - 50px);
+    height: 60px;
+    background-color: white;
+    padding-left: 50px;
+    z-index: 3;
+    border-bottom: 2px solid #f7f7f7;
+    
+    p {
+        margin: 0px;
+    }
+
+    .logo-focus {
+        cursor: pointer;
+    }
+
+    .notifications-container {
+        margin-right: 20px;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .notifications-image{
+            cursor: pointer;
+        }
+
+        .notification-icon-active {
+            filter: invert(50%) sepia(23%) saturate(7339%) hue-rotate(181deg) brightness(98%) contrast(91%);        //Transforming png image color
+        }
+
+        .notifications {
+            position: absolute;
+            top: 15px;
+            right: 17px;
+            width: 14px;
+            height: 14px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #EA4335;
+    
+            &__text {
+                color:white;
+                font-size: 10px;
+            }
+        }
+    }
+
+    .dropdown-container {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 162px;
+        height: auto;
+        background-color: white;
+        border-radius: 15px;
+        padding: 7px;
+        box-shadow: 1px 5px 12px 10px #F2F2F6 ;
+
+        .notification {
+            border-radius: 10px;
+            width: 140px;
+            height: 20px;
+            background-color: white;
+            position: relative;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+
+            .notifiaction__text {
+                font-size: 15px;
+            }
+
+            &:hover {
+                background-color: #1495F0;
+                color:white;
+            }
+            
+            &:hover p {
+                color:white !important;
+            }
+        }
+    }
+}
+
+.display-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display-flex-column {
+    display: flex;
+    flex-direction: column;
+}

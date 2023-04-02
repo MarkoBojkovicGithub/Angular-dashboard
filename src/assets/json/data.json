@@ -1,0 +1,114 @@
+
+{
+    "itemsList": [
+        {
+            "date": "2022-10-09T00:00:00",
+            "title": "Random Title one",
+            "businessUnit": "Business Unit some text to show",
+            "userImg": "../../../../../../assets/icons/User1-photo.png",
+            "delay": "1d overdue",
+            "status": "Approved"
+        },
+        {
+            "date": "2022-11-15T00:00:00",
+            "title": "Random Title two",
+            "businessUnit": "Business Unit some text to show",
+            "userImg": "../../../../../../assets/icons/User2-photo.png",
+            "delay": "On Track",
+            "status": "In Progress"
+        },
+        {
+            "date": "2022-05-02T00:00:00",
+            "title": "Random Title three",
+            "businessUnit": "Business Unit some text to show",
+            "userImg": "",
+            "delay": "1d Overdue",
+            "status": "Rejected"
+        }
+    ],
+    
+    "tasks": [
+        {
+            "img": "../../../../../../assets/icons/Tasks-user1-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 5 hours ago",
+            "progress": 80,
+            "date":"2022-05-22T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Tasks-user2-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 5 hours ago",
+            "progress": 20,
+            "date":"2022-05-25T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Tasks-user3-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 5 hours ago",
+            "progress": 50,
+            "date":"2022-05-21T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Tasks-user4-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 5 hours ago",
+            "progress": 90,
+            "date":"2022-05-28T00:00:00"
+        }
+    ],
+    
+    "actions": [
+        {
+            "img": "../../../../../../assets/icons/Actions-user1-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 5 hours ago",
+            "progress": 20,
+            "date":"2022-05-22T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Actions-user2-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 3 hours ago",
+            "progress": 80,
+            "date":"2022-05-25T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Actions-user3-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 2 hours ago",
+            "progress": 90,
+            "date":"2022-05-21T00:00:00"
+        },
+        {
+            "img": "../../../../../../assets/icons/Actions-user4-photo.png", 
+            "title": "Create new finance document",
+            "subtitle": "Edited 7 hours ago",
+            "progress": 50,
+            "date":"2022-05-28T00:00:00"
+        }
+    ],
+    
+    "calendar": [
+        {
+            "name": "Meeting name",
+            "date": "2022-11-05T00:00:00",
+            "status": "Urgent"
+        },
+        {
+            "name": "Meeting name",
+            "date": "2022-05-05T00:00:00",
+            "status": "Urgent"
+        },
+        {
+            "name": "Meeting name",
+            "date": "2022-09-20T00:00:00",
+            "status": "Urgent"
+        },
+        {
+            "name": "Meeting name",
+            "date": "2022-11-15T00:00:00",
+            "status": "Urgent"
+        }
+    ]
+}
