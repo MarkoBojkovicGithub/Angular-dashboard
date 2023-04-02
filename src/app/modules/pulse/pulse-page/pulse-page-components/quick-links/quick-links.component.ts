@@ -2,6 +2,7 @@
 import { Component, TemplateRef, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-quick-links',
@@ -31,7 +32,10 @@ export class QuickLinksComponent implements OnInit {
     formDueDate: new FormControl('', [ Validators.required]),
     formPriority: new FormControl('', [ Validators.required]),
     formObjective: new FormControl('', [ Validators.required]),
-    formJobs: new FormControl('', [Validators.required])
+    formJobTitle: new FormControl('', [Validators.required]),
+    formLanguageSpanish: new FormControl(),
+    formLanguageChinese: new FormControl(),
+    formLanguageArabic: new FormControl()
   })
 
   formItemTitleError: boolean = false;
@@ -44,7 +48,7 @@ export class QuickLinksComponent implements OnInit {
 
   newItem: any;
 
-  constructor( private modalService: BsModalService) {
+  constructor( private modalService: BsModalService, private storageService: StorageService) {
 
   }
   
@@ -77,7 +81,18 @@ export class QuickLinksComponent implements OnInit {
     let DueDate = this.quickItemForm.get('formDueDate')?.value;
     let Priority = this.quickItemForm.get('formPriority')?.value;
     let Objective = this.quickItemForm.get('formObjective')?.value;
-    let Job = this.quickItemForm.get('formJobs')?.value;
+    let Job = this.quickItemForm.get('formJobTitle')?.value;
+    let Languages = [];
+
+    if(this.quickItemForm.get('formLanguageSpanish')?.value == true) {
+      Languages.push('Spanish');
+    }
+    if(this.quickItemForm.get('formLanguageChinese')?.value == true) {
+      Languages.push('Chinese');
+    }
+    if(this.quickItemForm.get('formLanguageArabic')?.value == true) {
+      Languages.push('Arabic');
+    }
 
     this.newItem = {
       'ItemTitle': ItemTitle,
@@ -86,10 +101,13 @@ export class QuickLinksComponent implements OnInit {
       'DueDate': DueDate,
       'Priority': Priority,
       'Objective': Objective,
-      'Job': Job
+      'Job': Job,
+      'Languages': Languages
     }
+    this.storageService.addQuickItem(this.newItem);
     // Object ready for sending into the list of items //
   }
+
 
   checkFormValidation(): void {
     if(this.quickItemForm.valid) {  
@@ -123,7 +141,7 @@ export class QuickLinksComponent implements OnInit {
     if (!this.quickItemForm.get('formObjective')?.valid) {
       this.formObjectiveError = true;
     }
-    if (!this.quickItemForm.get('formJobs')?.valid) {
+    if (!this.quickItemForm.get('formJobTitle')?.valid) {
       this.formJobsError = true;
     }
   }
@@ -145,7 +163,10 @@ export class QuickLinksComponent implements OnInit {
     this.quickItemForm.get('formDueDate')?.reset();
     this.quickItemForm.get('formPriority')?.reset();
     this.quickItemForm.get('formObjective')?.reset();
-    this.quickItemForm.get('formJobs')?.reset();
+    this.quickItemForm.get('formJobTitle')?.reset();
+    this.quickItemForm.get('formLanguageSpanish')?.reset();
+    this.quickItemForm.get('formLanguageChinese')?.reset();
+    this.quickItemForm.get('formLanguageArabic')?.reset();
   }
 
   validateItemTitle(): void {
@@ -197,7 +218,7 @@ export class QuickLinksComponent implements OnInit {
   }
 
   validateJobs(): void {
-    if(!this.quickItemForm.get('formJobs')?.valid) {
+    if(!this.quickItemForm.get('formJobTitle')?.valid) {
       this.formJobsError = true;
     } else {
       this.formJobsError = false;

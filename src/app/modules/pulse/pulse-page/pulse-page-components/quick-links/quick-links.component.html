@@ -109,15 +109,15 @@
                     <div class="short-information display-flex-column">
                         <label for="JobTitle">Job Title</label>
                         <div class="display-flex-row" style="margin-top: 8px">
-                            <input id="MarketingCoordinator" formControlName="formJobs" class="job-title-option" type="radio" name="JobTitle" value="Marketing Coordinator" (change)="validateJobs()" required>
+                            <input id="MarketingCoordinator" formControlName="formJobTitle" class="job-title-option" type="radio" name="formJobTitle" value="Marketing Coordinator" (change)="validateJobs()" required>
                             <label for="MarketingCoordinator">Marketing Coordinator</label>
                         </div>
                         <div class="display-flex-row">
-                            <input id="WebDesigner" class="job-title-option" formControlName="formJobs"  type="radio" name="JobTitle" value="Web Designer" (change)="validateJobs()">
+                            <input id="WebDesigner" class="job-title-option" formControlName="formJobTitle"  type="radio" name="formJobTitle" value="Web Designer" (change)="validateJobs()">
                             <label for="WebDesigner">Web Designer</label>
                         </div>
                         <div class="display-flex-row">
-                            <input id="PresidentOfSales" class="job-title-option" formControlName="formJobs"  type="radio" name="JobTitle" value="President of Sales" (change)="validateJobs()">
+                            <input id="PresidentOfSales" class="job-title-option" formControlName="formJobTitle"  type="radio" name="formJobTitle" value="President of Sales" (change)="validateJobs()">
                             <label for="PresidentOfSales">President of Sales</label>
                         </div>
                         <p class="default-error" [ngClass]= "{'active-error': formJobsError == true}">Please select a Job Title</p>
@@ -125,15 +125,15 @@
                     <div class="short-information display-flex-column">
                         <label for="Languages">Languages</label>
                         <div class="display-flex-row" style="margin-top: 8px">
-                            <input id="Spanish" class="job-title-option" type="checkbox" name="Languages" value="Spanish">
+                            <input id="Spanish" class="job-title-option" formControlName="formLanguageSpanish" type="checkbox" name="formLanguageSpanish" value="Spanish">
                             <label for="Spanish">Spanish</label>
                         </div>
                         <div class="display-flex-row">
-                            <input id="Chinese" class="job-title-option"  type="checkbox" name="Languages" value="Chinese">
+                            <input id="Chinese" class="job-title-option" formControlName="formLanguageChinese"  type="checkbox" name="formLanguageChinese" value="Chinese">
                             <label for="Chinese">Chinese</label>
                         </div>
                         <div class="display-flex-row">
-                            <input id="Arabic" class="job-title-option"  type="checkbox" name="Languages" value="Arabic">
+                            <input id="Arabic" class="job-title-option" formControlName="formLanguageArabic" type="checkbox" name="formLanguageArabic" value="Arabic">
                             <label for="Arabic">Arabic</label>
                         </div>
                         <p class="default-error">Emtpy field for future updates</p>
